@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), PubNubPnCallback.MessagePubNubCallback
         val config = PNConfiguration()
             .setPublishKey(Consts.PUBNUB_PUBLISH_KEY)
             .setSubscribeKey(Consts.PUBNUB_SUBSCRIBE_KEY)
-            .setUuid("yoni"/*userName.toString()*/)
+            .setUuid(userName.toString())
             .setSecure(true)
         mPubnub_DataStream = PubNub(config)
     }
@@ -61,8 +61,10 @@ class MainActivity : AppCompatActivity(), PubNubPnCallback.MessagePubNubCallback
     }
 
     override fun onMessageArrived(message: String) {
-        messagesAdapter.addMessage(message)
-        rvMessages.scrollToPosition(getAdapter().itemCount -1)
+        runOnUiThread {
+            messagesAdapter.addMessage(message)
+            rvMessages.scrollToPosition(getAdapter().itemCount -1)
+        }
     }
 
     fun publish(messageToSend: String, userName: String) {

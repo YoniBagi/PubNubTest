@@ -6,11 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pubnubtest.R
 import com.example.pubnubtest.databinding.ItemMessageAdapterBinding
-import java.util.logging.Handler
-import kotlin.collections.ArrayList
 
 class MessagesAdapter : RecyclerView.Adapter<MessagesAdapter.ViewHolder>() {
-    private var mMessageList: ArrayList<String> = arrayListOf("one", "tow")
+    private var mMessageList =  ArrayList<String>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = DataBindingUtil.inflate<ItemMessageAdapterBinding>(
             LayoutInflater.from(parent.context),
