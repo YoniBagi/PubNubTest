@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="messagesAdapter"
+            type="com.example.pubnubtest.adapters.MessagesAdapter.ViewHolder" />
+        <variable
+            name="message"
+            type="String" />
+        <variable
+            name="timeStamp"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/messageItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{message}"
+            tools:text="Hi there"
+            android:textColor="@color/blcak"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"/>
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/messageItem"
+            app:layout_constraintTop_toBottomOf="@+id/messageItem"
+            android:text="@{timeStamp}"
+            tools:text="20:09"/>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
